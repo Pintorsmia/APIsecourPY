@@ -18,7 +18,7 @@ def index():
 class CalculerPrix(Resource):
     def get(self,distance,monnaie):
         #TODO devise
-        prix = float(args['distance']) * PRIXKILOMETRE
+        prix = float('distance') * PRIXKILOMETRE
         return {'prix': prix}
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:monnaie>', endpoint = "calculPrix")
