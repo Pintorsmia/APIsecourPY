@@ -23,14 +23,7 @@ class CalculerPrix(Resource):
         prixtmp = float(distance) * PRIXKILOMETRE
         if devise == "euro":
             retour = prix
-        elif devise == "dollar":
-            retour = prix * dollar
-        elif devise == "bitcoin":
-            retour = prix * bitcoin
-        elif devise == "francsuisse":
-            retour = prix * francsuisse
-        else:
-            retour = "Erreur devise inconnue"
+
         return retour
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
