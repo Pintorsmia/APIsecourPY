@@ -9,7 +9,10 @@ app = Flask(__name__)
 api = Api(app)
 
 
-PRIXKILOMETRE = 0.25
+PRIXKILOMETRE = 5
+dollar = 1.1
+francsuisse = 1.06
+bitcoin = 0.00012
 
 @app.route('/')
 def index():
@@ -18,8 +21,25 @@ def index():
 class CalculerPrix(Resource):
     def get(self,distance,monnaie):
         #TODO devise
-        prix = float(distance) * PRIXKILOMETRE
-        return {'prix': prix}
+        prixtmp = float(distance) * PRIXKILOMETRE
+        switch (monnaie) {
+        case "euro":
+            result = prixtmp;
+            break;
+        case "dollar":
+            result = dollar * prixtmp;
+            break;
+        case "francsuisse":
+            result = francsuisse * prixtmp;
+            break;
+        case "bitcoin":
+            result = bitcoin * prixtmp;
+            break;
+        default:
+            return "Erreur devise inconnue";
+            break;
+    }
+        return result + " " + monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:monnaie>', endpoint = "calculPrix")
 
