@@ -44,7 +44,7 @@ class CalculerPrix(Resource):
         #TODO devise
         prixtmp = float(distance) * PRIXKILOMETRE
         #return result + " " + monnaie
-        return prixdevise(monnaie,prixtmp)" "monnaie
+        return prixdevise(monnaie,prixtmp) + " " + monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:monnaie>', endpoint = "calculPrix")
 
