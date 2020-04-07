@@ -14,17 +14,37 @@ api = Api(app)
 def index():
     return render_template('index.html')
 
+
+ def week(i):
+        switcher={
+                0:'Sunday',
+                1:'Monday',
+                2:'Tuesday',
+                3:'Wednesday',
+                4:'Thursday',
+                5:'Friday',
+                6:'Saturday'
+             }
+         return switcher.get(i,"Invalid day of week")
+
 class CalculerPrix(Resource):
-    def get(self,distance,monnaie):
-        PRIXKILOMETRE = 5
+     def devise(devise,prix):
         dollar = 1.1
         francsuisse = 1.06
         bitcoin = 0.00012
+        switcher={
+                "euro":prix,
+                "dollar":prix * dollar,
+                "bitcoin":prix * bitcoin,
+                "francsuisse":prix * francsuisse
+             }
+        return switcher.get(devise,"Pas de devise")
+    def get(self,distance,monnaie):
+        PRIXKILOMETRE = 5
         #TODO devise
         prixtmp = float(distance) * PRIXKILOMETRE
-        
         #return result + " " + monnaie
-        return "oskour"
+        return devise(monnaie,prixtmp)" "monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:monnaie>', endpoint = "calculPrix")
 
