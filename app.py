@@ -28,7 +28,7 @@ def index():
          return switcher.get(i,"Invalid day of week")
 
 class CalculerPrix(Resource):
-     def prixdevise(devise,prix):
+     def prixdevise(self,devise,prix):
         dollar = 1.1
         francsuisse = 1.06
         bitcoin = 0.00012
