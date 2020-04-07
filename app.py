@@ -22,23 +22,7 @@ class CalculerPrix(Resource):
         bitcoin = 0.00012
         #TODO devise
         prixtmp = float(distance) * PRIXKILOMETRE
-        switch (monnaie) {
-        case "euro":
-            result = prixtmp;
-            break;
-        case "dollar":
-            result = dollar * prixtmp;
-            break;
-        case "francsuisse":
-            result = francsuisse * prixtmp;
-            break;
-        case "bitcoin":
-            result = bitcoin * prixtmp;
-            break;
-        default:
-            return "Erreur devise inconnue";
-            break;
-    }
+        
         #return result + " " + monnaie
         return "oskour"
 
