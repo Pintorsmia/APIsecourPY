@@ -32,13 +32,23 @@ class CalculerPrix(Resource):
         dollar = 1.1
         francsuisse = 1.06
         bitcoin = 0.00012
-        switcher={
-                "euro":prix,
-                "dollar":prix * dollar,
-                "bitcoin":prix * bitcoin,
-                "francsuisse":prix * francsuisse
-             }
-        return switcher.get(devise,"Pas de devise")
+        if devise == "euro":
+            retour = prix
+            pass
+        elif devise == "dollar":
+            retour = prix * dollar
+            pass
+        elif devise == "bitcoin":
+            retour = prix * bitcoin
+            pass
+        elif devise == "francsuisse":
+            retour = prix * francsuisse
+            pass
+        else:
+            retour = "Erreur devise inconnue"
+            pass
+        return retour
+
     def get(self,distance,monnaie):
         PRIXKILOMETRE = 5
         #TODO devise
