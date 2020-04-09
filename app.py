@@ -28,9 +28,11 @@ class CalculerPrix(Resource):
             prix = prixtmp * dollar
         elif devise == "francsuisse":
             prix = prixtmp * francsuisse
-        elif devise == bitcoin:
+        elif devise == "bitcoin":
             prix = prixtmp * bitcoin
-        return {'prix' : prix, 'devise' : devise}
+        else :
+            return{'message' : "Error"}
+        return {'message' : "ok", 'prix' : prix, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:devise>', endpoint = "calculPrix")
