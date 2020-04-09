@@ -25,7 +25,7 @@ class CalculerPrix(Resource):
         #if devise == "euro":
           #  retour = prix
 
-        return {prix : retour}
+        return {'prix' : retour, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:devise>', endpoint = "calculPrix")
