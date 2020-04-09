@@ -23,11 +23,11 @@ class CalculerPrix(Resource):
         
         prixtmp = float(distance) * PRIXKILOMETRE
         if devise == "euro":
-            prix = prixtmp
+            prix = round(prixtmp,2)
         elif devise == "dollar":
-            prix = prixtmp * dollar
+            prix = round(prixtmp * dollar,2)
         elif devise == "francsuisse":
-            prix = prixtmp * francsuisse
+            prix = round(prixtmp * francsuisse,2)
         elif devise == "bitcoin":
             prix = prixtmp * bitcoin
         else :
