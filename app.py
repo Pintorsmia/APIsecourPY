@@ -35,5 +35,5 @@ class CalculerPrix(Resource):
         return {'message' : "ok", 'prix' : prix, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
-api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:devise>', endpoint = "calculPrix")
+api.add_resource(CalculerPrix,'/API/calcul/<double:distance>/<string:devise>', endpoint = "calculPrix")
 
