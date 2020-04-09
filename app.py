@@ -24,7 +24,8 @@ class CalculerPrix(Resource):
         prixtmp = float(distance) * PRIXKILOMETRE
         if devise == "euro":
             prix = prixtmp
-
+        elif devise == "dollar":
+            prix = prixtmp * dollar
         return {'prix' : prix, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
