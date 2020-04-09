@@ -22,10 +22,10 @@ class CalculerPrix(Resource):
         bitcoin = 0.00012
         
         prixtmp = float(distance) * PRIXKILOMETRE
-        #if devise == "euro":
-          #  retour = prix
+        if devise == "euro":
+            prix = prixtmp
 
-        return {'prix' : prixtmp, 'devise' : devise}
+        return {'prix' : prix, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
 api.add_resource(CalculerPrix,'/API/calcul/<int:distance>/<string:devise>', endpoint = "calculPrix")
