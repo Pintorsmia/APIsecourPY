@@ -26,6 +26,10 @@ class CalculerPrix(Resource):
             prix = prixtmp
         elif devise == "dollar":
             prix = prixtmp * dollar
+        elif devise == "francsuisse":
+            prix = prixtmp * francsuisse
+        elif devise == bitcoin:
+            prix = prixtmp * bitcoin
         return {'prix' : prix, 'devise' : devise}
         #return prixdevise(monnaie,prixtmp) + " " + monnaie
 
