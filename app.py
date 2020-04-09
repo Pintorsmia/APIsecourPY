@@ -20,6 +20,7 @@ class CalculerPrix(Resource):
         dollar = 1.1
         francsuisse = 1.06
         bitcoin = 0.00012
+        
         prixtmp = float(distance) * PRIXKILOMETRE
         if devise == "euro":
             retour = prix
